@@ -1,0 +1,18 @@
+service: collie-api
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  graphql:
+    handler: index.handler
+    events:
+      - http:
+          path: api
+          method: post
+          cors: true
+      - http:
+          path: api
+          method: get
+          cors: true

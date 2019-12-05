@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/aoropeza/collie-api/issues"
   },
-  "homepage": "https://github.com/aoropeza/collie-api#readme"
+  "homepage": "https://github.com/aoropeza/collie-api#readme",
+  "dependencies": {
+    "apollo-server": "^2.9.13",
+    "apollo-server-lambda": "^2.9.13",
+    "graphql": "^14.5.8",
+    "save-dev": "0.0.1-security"
+  }
 }
