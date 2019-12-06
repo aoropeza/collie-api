@@ -6,7 +6,7 @@ provider:
 
 functions:
   graphql:
-    handler: index.handler
+    handler: src/index.handler
     events:
       - http:
           path: api
@@ -16,3 +16,9 @@ functions:
           path: api
           method: get
           cors: true
+package:
+  exclude:
+    - __test__/**
+    - src/local-server.js
+    - package.json
+    - package-lock.json

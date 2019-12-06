@@ -4,7 +4,7 @@
   "description": "Graphql API for collie ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run:locally": "node src/local-server.js"
   },
   "repository": {
     "type": "git",
@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/aoropeza/collie-api#readme",
   "dependencies": {
-    "apollo-server": "^2.9.13",
     "apollo-server-lambda": "^2.9.13",
-    "graphql": "^14.5.8",
-    "save-dev": "0.0.1-security"
+    "graphql": "^14.5.8"
+  },
+  "devDependencies": {
+    "apollo-server": "^2.9.13",
+    "eslint": "^6.7.2"
   }
 }
