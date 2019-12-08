@@ -7,6 +7,12 @@ phases:
     commands:
       - npm install
       - npm install -g serverless
+  pre-build:
+    commands:
+      - npm lint
   build:
+    commands:
+      - npm test
+  post-build:
     commands:
       - serverless deploy
