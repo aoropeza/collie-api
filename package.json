@@ -4,7 +4,9 @@
   "description": "Graphql API for collie ",
   "main": "index.js",
   "scripts": {
-    "run:locally": "node src/local-server.js"
+    "run:locally": "node src/local-server.js",
+    "lint": "",
+    "test": ""
   },
   "repository": {
     "type": "git",
