@@ -9,7 +9,7 @@ phases:
       - npm install -g serverless
   pre_build:
     commands:
-      - npm lint
+      - npm run lint
   build:
     commands:
       - npm test
