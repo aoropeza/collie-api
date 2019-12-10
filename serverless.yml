@@ -11,6 +11,7 @@ provider:
     DB_HOST: ${env:DB_HOST, file(vars/${self:custom.stage}.yml):DB_HOST}
     DB_USER: ${env:DB_USER, file(vars/${self:custom.stage}.yml):DB_USER}
     DB_PWD: ${env:DB_PWD, file(vars/${self:custom.stage}.yml):DB_PWD}
+    DB_NAME: ${env:DB_NAME, file(vars/${self:custom.stage}.yml):DB_NAME}
 
 functions:
   graphql:
