@@ -5,9 +5,9 @@ provider:
   runtime: nodejs12.x
   region: us-east-1
   environment:
-    DB_HOST: ${env.DB_HOST}
-    DB_USER: ${env.DB_USER}
-    DB_PWD: ${env.DB_PWD}
+    DB_HOST: ${env:DB_HOST}
+    DB_USER: ${env:DB_USER}
+    DB_PWD: ${env:DB_PWD}
 
 functions:
   graphql:
