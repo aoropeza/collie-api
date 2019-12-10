@@ -12,6 +12,7 @@ provider:
     DB_USER: ${env:DB_USER, file(vars/${self:custom.stage}.yml):DB_USER}
     DB_PWD: ${env:DB_PWD, file(vars/${self:custom.stage}.yml):DB_PWD}
     DB_NAME: ${env:DB_NAME, file(vars/${self:custom.stage}.yml):DB_NAME}
+    DOMAIN_NAME: ${env:DOMAIN_NAME, file(vars/${self:custom.stage}.yml):DOMAIN_NAME}
 
 functions:
   graphql:
@@ -31,3 +32,13 @@ package:
     - src/local-server.js
     - package.json
     - package-lock.json
+
+resources:
+  Resources:
+  CustomDomainMap:
+    Type: "AWS:ApiGateway::BasePathMapping"
+    Properties:
+      BasePath: collie
+      DomainName: ${self:provider.environment.DOMAIN_NAME}
+      Stage: ${self:custom.stage}
+      RestApiId: { Ref: ApiGatewayRestApi }
