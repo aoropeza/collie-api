@@ -35,10 +35,10 @@ package:
 
 resources:
   Resources:
-  CustomDomainMap:
-    Type: "AWS:ApiGateway::BasePathMapping"
-    Properties:
-      BasePath: collie
-      DomainName: ${self:provider.environment.DOMAIN_NAME}
-      Stage: ${self:custom.stage}
-      RestApiId: { Ref: ApiGatewayRestApi }
+    CustomDomainMap:
+      Type: "AWS:ApiGateway::BasePathMapping"
+      Properties:
+        BasePath: collie
+        DomainName: ${self:provider.environment.DOMAIN_NAME}
+        Stage: ${self:custom.stage}
+        RestApiId: { Ref: ApiGatewayRestApi }
