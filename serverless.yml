@@ -8,11 +8,12 @@ provider:
   runtime: nodejs12.x
   region: us-east-1
   environment:
+    NODE_ENV: ${env:NODE_ENV, file(vars/${self:custom.stage}.yml):NODE_ENV}
+    DOMAIN_NAME: ${env:DOMAIN_NAME, file(vars/${self:custom.stage}.yml):DOMAIN_NAME}
     DB_HOST: ${env:DB_HOST, file(vars/${self:custom.stage}.yml):DB_HOST}
     DB_USER: ${env:DB_USER, file(vars/${self:custom.stage}.yml):DB_USER}
     DB_PWD: ${env:DB_PWD, file(vars/${self:custom.stage}.yml):DB_PWD}
     DB_NAME: ${env:DB_NAME, file(vars/${self:custom.stage}.yml):DB_NAME}
-    DOMAIN_NAME: ${env:DOMAIN_NAME, file(vars/${self:custom.stage}.yml):DOMAIN_NAME}
 
 functions:
   graphql:
