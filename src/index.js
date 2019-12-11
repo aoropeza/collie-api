@@ -16,4 +16,8 @@ const typeDefs = gql`
 `;
 
 const server = new ApolloServer({ typeDefs, resolvers });
-exports.handler = server.createHandler();
+exports.handler = server.createHandler({
+  cors: {
+    origin: "*"
+  }
+});
