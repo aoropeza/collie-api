@@ -11,18 +11,18 @@ provider:
     - name: collie-api-key-${self:custom.stage}
   usagePlan:
     quota:
-      limit: ${env:USAGE_QUOTA_LIMIT, file(vars/${self:custom.stage}.yml):USAGE_QUOTA_LIMIT}
-      period: ${env:USAGE_QUOTA_PERIOD, file(vars/${self:custom.stage}.yml):USAGE_QUOTA_PERIOD}
+      limit: ${env:USAGE_QUOTA_LIMIT):USAGE_QUOTA_LIMIT}
+      period: ${env:USAGE_QUOTA_PERIOD):USAGE_QUOTA_PERIOD}
     throttle:
-      burstLimit: ${env:USAGE_THROTTLE_RATE_LIMIT, file(vars/${self:custom.stage}.yml):USAGE_THROTTLE_RATE_LIMIT}
-      rateLimit: ${env:USAGE_THROTTLE_BURST_LIMIT, file(vars/${self:custom.stage}.yml):USAGE_THROTTLE_BURST_LIMIT}
+      burstLimit: ${env:USAGE_THROTTLE_RATE_LIMIT):USAGE_THROTTLE_RATE_LIMIT}
+      rateLimit: ${env:USAGE_THROTTLE_BURST_LIMIT):USAGE_THROTTLE_BURST_LIMIT}
   environment:
-    NODE_ENV: ${env:NODE_ENV, file(vars/${self:custom.stage}.yml):NODE_ENV}
-    DOMAIN_NAME: ${env:DOMAIN_NAME, file(vars/${self:custom.stage}.yml):DOMAIN_NAME}
-    DB_HOST: ${env:DB_HOST, file(vars/${self:custom.stage}.yml):DB_HOST}
-    DB_USER: ${env:DB_USER, file(vars/${self:custom.stage}.yml):DB_USER}
-    DB_PWD: ${env:DB_PWD, file(vars/${self:custom.stage}.yml):DB_PWD}
-    DB_NAME: ${env:DB_NAME, file(vars/${self:custom.stage}.yml):DB_NAME}
+    NODE_ENV: ${env:NODE_ENV):NODE_ENV}
+    DOMAIN_NAME: ${env:DOMAIN_NAME):DOMAIN_NAME}
+    DB_HOST: ${env:DB_HOST):DB_HOST}
+    DB_USER: ${env:DB_USER):DB_USER}
+    DB_PWD: ${env:DB_PWD):DB_PWD}
+    DB_NAME: ${env:DB_NAME):DB_NAME}
 
 functions:
   graphql:
