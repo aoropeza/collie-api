@@ -7,6 +7,15 @@ provider:
   name: aws
   runtime: nodejs12.x
   region: us-east-1
+  apiKeys:
+    - name: collie-api-key-${self:custom.stage}
+  usagePlan:
+    quota:
+      limit: ${env:USAGE_QUOTA_LIMIT, file(vars/${self:custom.stage}.yml):USAGE_QUOTA_LIMIT}
+      period: ${env:USAGE_QUOTA_PERIOD, file(vars/${self:custom.stage}.yml):USAGE_QUOTA_PERIOD}
+    throttle:
+      burstLimit: ${env:USAGE_THROTTLE_RATE_LIMIT, file(vars/${self:custom.stage}.yml):USAGE_THROTTLE_RATE_LIMIT}
+      rateLimit: ${env:USAGE_THROTTLE_BURST_LIMIT, file(vars/${self:custom.stage}.yml):USAGE_THROTTLE_BURST_LIMIT}
   environment:
     NODE_ENV: ${env:NODE_ENV, file(vars/${self:custom.stage}.yml):NODE_ENV}
     DOMAIN_NAME: ${env:DOMAIN_NAME, file(vars/${self:custom.stage}.yml):DOMAIN_NAME}
@@ -23,10 +32,12 @@ functions:
           path: api
           method: post
           cors: true
+          private: true
       - http:
           path: api
           method: get
           cors: true
+          private: true
 package:
   exclude:
     - __test__/**
