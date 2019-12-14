@@ -1,5 +1,73 @@
+scalar Date
+
+scalar DateRange
+
+type Movie {
+  name: String
+}
+
+type Location {
+  name: String
+  dist_calculated: Float
+  address: String
+  brand: Brand
+  schedules: [Schedules]
+}
+
+type Brand {
+  logo: String
+  name: String
+}
+
+type Schedules {
+  duration: Float
+  typeRoom: String
+  startTimeZone: String
+  movie: Movie
+}
+
 type Query {
-  hello: String
-  bye: String
-  say: String
+  "Retrieve list of current movies filter by day and range of times. You must set client's time zone"
+  activeMovies(
+    """
+    Example: 2019-12-04.
+    """
+    date: Date!
+    """
+    Example: 12:00-17:59.
+    """
+    timeOfDay: DateRange!
+    """
+    Client's time zone. Example: America/Mexico_City
+    """
+    timeZone: String!
+  ): [Movie]
+
+  "Retrieve list of current movies and their info filter by movie's name, day, range of times and location. You must set client's time zone"
+  infoSchedulesByMovie(
+    """
+    Movie to filter information
+    """
+    movieName: String!
+    """
+    Example: 2019-12-04.
+    """
+    date: Date!
+    """
+    Example: 12:00-17:59.
+    """
+    timeOfDay: DateRange!
+    """
+    Client's time zone. Example: America/Mexico_City
+    """
+    timeZone: String!
+    """
+    Client's latitud to sort info
+    """
+    latitude: Float!
+    """
+    Client's longitude to sort info
+    """
+    longitude: Float!
+  ): [Location]
 }

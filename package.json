@@ -4,9 +4,11 @@
   "description": "Graphql API for collie ",
   "main": "index.js",
   "scripts": {
-    "run:locally": "node src/local-server.js",
-    "lint": "",
-    "test": ""
+    "run:locally": "DEBUG=collie* nodemon src/local-server.js",
+    "format": "prettier --write \"**/*.{js,json,md,yaml}\"",
+    "format:check": "prettier --check \"**/*.{js,json,md,yaml}\"",
+    "lint": "npm run format:check && eslint .",
+    "test": "jest --forceExit"
   },
   "repository": {
     "type": "git",
@@ -20,11 +22,20 @@
   "homepage": "https://github.com/aoropeza/collie-api#readme",
   "dependencies": {
     "apollo-server-lambda": "^2.9.13",
-    "graphql": "^14.5.8"
+    "collie-uses-cases": "git+ssh://git@github.com:aoropeza/collie-uses-cases.git",
+    "graphql": "^14.5.8",
+    "moment": "^2.24.0"
   },
   "devDependencies": {
     "apollo-server": "^2.9.13",
     "dotenv": "^8.2.0",
-    "eslint": "^6.7.2"
+    "eslint": "^6.7.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^23.0.4",
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1"
   }
 }
