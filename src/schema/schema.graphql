@@ -20,7 +20,7 @@ type Brand {
 }
 
 type Schedules {
-  duration: Float
+  duration: String
   typeRoom: String
   startTimeZone: String
   movie: Movie
