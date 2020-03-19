@@ -4,6 +4,8 @@ scalar DateRange
 
 type Movie {
   name: String
+  id: String
+  cover: String
 }
 
 type Location {
