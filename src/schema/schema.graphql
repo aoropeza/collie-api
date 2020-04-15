@@ -11,6 +11,7 @@ type Movie {
 type Location {
   name: String
   dist_calculated: Float
+  computedUnique: String
   address: String
   brand: Brand
   schedules: [Schedules]
